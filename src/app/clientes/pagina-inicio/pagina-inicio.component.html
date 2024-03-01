@@ -5,13 +5,6 @@
         <app-listado-clientes [clientes]="clientes"></app-listado-clientes>
     </div>
     <div class="col">
-        <h3>Agregar</h3>
-        <hr>
-        <!-- <p>{{nuevo.nombre}}</p> -->
-        <form (submit)="agregar()">
-            <input type="text" placeholder="Nombre" name="nombre" [(ngModel)]="nuevo.nombre"/>
-            <input type="number" placeholder="Credito" name="credito" [(ngModel)]="nuevo.credito" />
-            <button type="submit">Agregar</button>
-        </form>
+        <app-agregar-cliente (onNuevoCliente)="agregarNuevoCliente($event)"></app-agregar-cliente>
     </div>
 </div>

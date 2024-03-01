@@ -8,10 +8,6 @@ import { IClientes } from '../interfaces/clientes';
 })
 export class PaginaInicioComponent {
 
-  nuevo:IClientes={
-    nombre:'',
-    credito:0
-  };
   clientes:IClientes[]=[
     {
       nombre:'Alfonso',
@@ -21,20 +17,9 @@ export class PaginaInicioComponent {
       nombre:'josue',
     credito:1578
     }
-
   ]
-  agregar(){
-    //console.log(this.nuevo);
-    if(this.nuevo.nombre.trim().length === 0){
-      return;
-    }
-    if(this.nuevo.credito === null){
-      return;
-    }
-    this.clientes.push(this.nuevo);
-    this.nuevo={
-      nombre:'',
-      credito:0
-    }
+
+  agregarNuevoCliente(cliente:IClientes){
+    this.clientes.push(cliente);
   }
 }
