@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { IClientes } from '../interfaces/clientes';
+import { ClientesService } from '../clientes.service';
 
 @Component({
   selector: 'app-agregar-cliente',
@@ -11,9 +12,10 @@ export class AgregarClienteComponent {
     nombre:'',
     credito:0
   };
-
-  @Output()
-  onNuevoCliente:EventEmitter<IClientes> = new EventEmitter();
+  constructor(private clienteService:ClientesService){}
+  
+  // @Output()
+  // onNuevoCliente:EventEmitter<IClientes> = new EventEmitter();
 
   agregar(){
     //console.log(this.nuevo);
@@ -24,8 +26,9 @@ export class AgregarClienteComponent {
       return;
     }
 
-    this.onNuevoCliente.emit(this.nuevo);
+    //this.onNuevoCliente.emit(this.nuevo);
     //this.clientes.push(this.nuevo);
+    this.clienteService.agregarCliente(this.nuevo);
     this.nuevo={
       nombre:'',
       credito:0

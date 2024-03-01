@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IClientes } from '../interfaces/clientes';
+import { ClientesService } from '../clientes.service';
 
 @Component({
   selector: 'app-pagina-inicio',
@@ -8,18 +9,7 @@ import { IClientes } from '../interfaces/clientes';
 })
 export class PaginaInicioComponent {
 
-  clientes:IClientes[]=[
-    {
-      nombre:'Alfonso',
-    credito:2566
-    },
-    {
-      nombre:'josue',
-    credito:1578
-    }
-  ]
+  //aqui ya se esta inyectando el servicio
+  constructor(){}
 
-  agregarNuevoCliente(cliente:IClientes){
-    this.clientes.push(cliente);
-  }
 }
